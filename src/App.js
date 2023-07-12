@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import InputForm from './components/InputForm';
+import Users from './components/Users';
+const dummyArray=[];
 
 function App() {
+  const[array,setArray]=useState(dummyArray);
+  const formInputsHandler=(user)=>{
+    
+    console.log(user);
+    // dummyArray.push(user);
+    setArray(prevState=>{
+      return [user, ...prevState]
+    });
+
+
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+     <InputForm onSubmitForm={formInputsHandler}/>
+     <Users items={array} />
     </div>
   );
 }
