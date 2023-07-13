@@ -8,7 +8,7 @@ const Users = (props) => {
         
         <li key={item.id}>
        
-          {item.name} {item.age}(years old)
+          {item.name} {item.age}(years old) {item.college}
         </li>
       ))}
     </ul>
